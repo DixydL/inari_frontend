@@ -1,5 +1,5 @@
 const state = {
-  animes: {},
+  animes: [],
   anime: {},
 };
 
