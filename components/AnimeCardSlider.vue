@@ -65,7 +65,7 @@ export default Vue.extend({
     mounted() {
 
         this.swiper = new Swiper('.' + this.uniqueClass, {
-            slidesPerView: 7,
+            slidesPerView: 'auto',
             slidesPerColumn: this.cardHeight,
             slidesPerColumnFill: 'row',
             spaceBetween: 16
@@ -96,7 +96,10 @@ export default Vue.extend({
 
 .swiper-container {
     position: relative;
-    
+}
+
+.swiper-slide {
+    width: 200px !important;
 }
 
 .nav-buttons {

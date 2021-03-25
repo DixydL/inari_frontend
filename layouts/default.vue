@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss">
 .app-bg.app-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
     url("~/assets/imgs/default_bg.jpg");
   background-size: cover;
   background-attachment: fixed;
@@ -128,8 +128,11 @@ export default {
 }
 
 footer {
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 300px;
   background-color: #434343;
+  padding-left: 80px;
 }
 </style>
