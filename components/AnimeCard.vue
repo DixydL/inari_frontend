@@ -51,7 +51,7 @@ export default Vue.extend({
 <style lang="scss">
 
     .anime-card-wrap {
-        width: 220px !important;
+        width: 190px !important;
         cursor: pointer;     
     
     .anime-card-poster-wrap {
@@ -72,7 +72,7 @@ export default Vue.extend({
         .anime-card-poster {
         position: relative;
         width: inherit;
-        height: 330px; 
+        height: 300px; 
         background-size: 100% 100%;
         border-radius: 10px;
     
@@ -85,8 +85,6 @@ export default Vue.extend({
         }
 
         &::before {
-            width: inherit;
-            height: inherit;
             border-radius: 10px;
             background-color: rgba($color: #000000, $alpha: .8);
             top: 0;

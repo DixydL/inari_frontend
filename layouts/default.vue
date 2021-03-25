@@ -59,29 +59,18 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer app>
+    <footer>
       <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    </footer>
   </v-app>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      searchFilterName: "",
-      items: [
-        {
-          icon: "mdi-magnify",
-          to: "/search",
-        },
-        // {
-        //   icon: 'mdi-newspaper-variant',
-        //   to: '/inspire'
-        // }
-      ],
 
-      title: "Vuetify.js",
     };
   },
 };
@@ -136,5 +125,11 @@ export default {
     width: 100%;
     letter-spacing: 0.5px;
   }
+}
+
+footer {
+  width: 100%;
+  height: 300px;
+  background-color: #434343;
 }
 </style>

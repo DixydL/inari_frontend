@@ -65,7 +65,7 @@ export default Vue.extend({
     mounted() {
 
         this.swiper = new Swiper('.' + this.uniqueClass, {
-            slidesPerView: 6,
+            slidesPerView: 7,
             slidesPerColumn: this.cardHeight,
             slidesPerColumnFill: 'row',
             spaceBetween: 16
