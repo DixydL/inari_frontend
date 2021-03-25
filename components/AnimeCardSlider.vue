@@ -1,6 +1,6 @@
 <template>
     <div class="anime-card-slider-wrap">
-        <div class="swiper-container">
+        <div :class="'swiper-container ' + uniqueClass">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -45,6 +45,10 @@ import 'swiper/swiper-bundle.min.css'
 
 export default Vue.extend({
     props: {
+        uniqueClass: {
+            type: String,
+            required: true
+        },
         cardHeight: {
             type: Number,
             default: () => 1,
@@ -59,10 +63,12 @@ export default Vue.extend({
         
     },
     mounted() {
-        this.swiper = new Swiper('.swiper-container', {
+
+        this.swiper = new Swiper('.' + this.uniqueClass, {
             slidesPerView: 6,
             slidesPerColumn: this.cardHeight,
-            slidesPerColumnFill: 'row'
+            slidesPerColumnFill: 'row',
+            spaceBetween: 16
         })
     },
     methods: {
@@ -75,7 +81,7 @@ export default Vue.extend({
     },
     data() {
         return {
-            swiper: null as any
+            swiper: null as any,
         }
     }
 })

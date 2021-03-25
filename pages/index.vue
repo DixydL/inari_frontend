@@ -1,9 +1,12 @@
 <template>
   <v-row class="wrap-row" no-gutters>
     <h2>Оновлені</h2>
+    <anime-card-slider :animes="recentlyUpdatedAnimes" uniqueClass="recentlyUpdated" />
+    <slider-button text="Показати всі" to="/search" />
 
-    <anime-card-slider :animes="recentlyUpdatedAnimes"/>
-    <slider-button text="Показати всі" to="/search"/>
+    <h2>Топ по переглядах</h2>
+    <anime-card-slider :cardHeight="2" :animes="animes" uniqueClass="topWatched" />
+    <slider-button text="Показати всі" to="/search" />
   </v-row>
 </template>
 
