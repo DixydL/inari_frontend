@@ -1,53 +1,35 @@
 <template>
   <v-app class="app-bg">
-    <v-navigation-drawer
-      mini-variant
+    <v-navigation-drawer 
+      mini-variant 
       permanent
-      app
       fixed
+      app
     >
       <v-list>
-        <v-list-item 
-          class="px-2"
-          to="/"
-          router
-          exact
-        >
+        <v-list-item class="px-2" to="/" router exact>
           <v-list-item-avatar>
             <v-img :src="require('assets/imgs/inari_logo.png')" />
           </v-list-item-avatar>
           <v-list-item-title></v-list-item-title>
         </v-list-item>
 
-        <v-list-item
-          to="/search"
-          router
-          exact
-        >
+        <v-list-item to="/search" router exact>
           <v-list-item-action>
             <v-icon>mdi-magnify</v-icon>
           </v-list-item-action>
           <v-list-item-content></v-list-item-content>
         </v-list-item>
 
-        <v-list-item
-          router
-          exact
-        >
+        <v-list-item router exact>
           <v-list-item-action>
             <v-icon>mdi-newspaper-variant</v-icon>
           </v-list-item-action>
           <v-list-item-content></v-list-item-content>
         </v-list-item>
-
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar
-      fixed
-      app
-      style="justify-content: space-between"
-    >
-
+    <v-app-bar fixed app style="justify-content: space-between">
       <h1 class="logo-name">Inari</h1>
 
       <v-spacer />
@@ -56,20 +38,18 @@
         <label for="search-input">
           <v-icon class="search-icon" medium>mdi-magnify</v-icon>
         </label>
-        <input id="search-input" v-model="searchFilterName" type="text" placeholder="Шукати аніме..."/>
+        <input
+          id="search-input"
+          v-model="searchFilterName"
+          type="text"
+          placeholder="Шукати аніме..."
+        />
       </div>
 
       <v-spacer />
 
-      <v-btn
-        class="login-btn"
-        rounded
-        large
-        color="red darken-2"
-      >
-        <v-icon style="margin-right: 10px;">
-          mdi-account
-        </v-icon>
+      <v-btn class="login-btn" rounded large color="red darken-2">
+        <v-icon style="margin-right: 10px"> mdi-account </v-icon>
 
         Увійти
       </v-btn>
@@ -79,10 +59,7 @@
         <nuxt />
       </v-container>
     </v-main>
-    <v-footer
-      absolute
-      app
-    >
+    <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -90,13 +67,13 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      searchFilterName: '',
+      searchFilterName: "",
       items: [
         {
-          icon: 'mdi-magnify',
-          to: '/search'
+          icon: "mdi-magnify",
+          to: "/search",
         },
         // {
         //   icon: 'mdi-newspaper-variant',
@@ -104,30 +81,34 @@ export default {
         // }
       ],
 
-      title: 'Vuetify.js'
-    }
-  }
-}
+      title: "Vuetify.js",
+    };
+  },
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-bg.app-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .8)), url('~/assets/imgs/default_bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+    url("~/assets/imgs/default_bg.jpg");
   background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 .wrap.wrap {
   padding: 60px 150px;
   align-items: flex-start;
+  overflow-y: auto;
 }
 
 .logo-name {
-  font-family: 'Montez', cursive;
+  font-family: "Montez", cursive;
 }
 
 .login-btn {
   text-transform: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   font-weight: 500;
 }
@@ -139,7 +120,7 @@ export default {
   border-radius: 10px;
   padding: 0 16px;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   width: 50%;
 
@@ -153,7 +134,7 @@ export default {
     outline: none;
     color: #fff;
     width: 100%;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
 }
 </style>

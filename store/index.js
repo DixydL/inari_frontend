@@ -10,7 +10,8 @@ const store = () => new Vuex.Store({
     axiosAuth: null,
   },
   actions: {
-    async nuxtServerInit({ commit }, { app, store }) {
+    async nuxtServerInit({ dispatch }, { app, store }) {
+      await dispatch('anime/load')
     },
   },
   getters: {
