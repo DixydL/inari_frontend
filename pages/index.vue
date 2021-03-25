@@ -24,7 +24,7 @@ export default {
         name: anime.name,
         type: anime.type,
         posterUrl: process.env.APP_URL + anime.poster_url
-      })).reduce((acc, curr) => acc.concat([curr, curr, curr, curr, curr]), [])
+      })).reduce((acc, curr) => acc.concat([curr, curr, curr, curr, curr, curr, curr, curr, curr, curr]), [])
     }
   },
   components: {

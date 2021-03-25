@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link class="swiper-slide anime-card-wrap" tag="div" :to="'/anime/' + id">
+    <nuxt-link class="anime-card-wrap" tag="div" :to="'/anime/' + id">
         <div class="anime-card-poster-wrap">
             <div class="anime-card-poster" :style="{backgroundImage: `url(${posterUrl})`}"></div>
             <div

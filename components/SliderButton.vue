@@ -46,12 +46,12 @@ export default Vue.extend({
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 400;
+    margin: 0 10px;
     }
 
     & .spacer {
         display: flex;
         align-items: center;
-        padding: 0 10px;
 
         .spacer-line {
             width: 100%;

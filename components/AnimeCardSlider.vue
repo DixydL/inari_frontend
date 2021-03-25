@@ -4,9 +4,11 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
+                <div
+                    v-for="(anime, index) in animes" 
+                    :key="index"
+                    class="swiper-slide">
                 <anime-card
-                        v-for="(anime, index) in animes" 
-                        :key="index"
                         :id="anime.id"
                         :name="anime.name"
                         :type="anime.type"
@@ -14,6 +16,7 @@
                         :currentEpisodes="anime.currentEpisodes | 0"
                         :countEpisodes="anime.countEpisodes | 0"
                     />
+                </div>
             </div>
 
             <!-- If we need navigation buttons -->
@@ -58,7 +61,8 @@ export default Vue.extend({
     mounted() {
         this.swiper = new Swiper('.swiper-container', {
             slidesPerView: 6,
-            spaceBetween: 30,
+            slidesPerColumn: this.cardHeight,
+            slidesPerColumnFill: 'row'
         })
     },
     methods: {
