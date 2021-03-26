@@ -11,7 +11,6 @@ const store = () => new Vuex.Store({
   },
   actions: {
     async nuxtServerInit({ dispatch }, { app, store }) {
-      await dispatch('anime/load')
     },
   },
   getters: {
@@ -24,7 +23,7 @@ const store = () => new Vuex.Store({
     },
     getAuth: state => () => {
       return state.user.user.auth;
-    }
+    },
   },
   mutations: {
   },

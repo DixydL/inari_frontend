@@ -1,12 +1,12 @@
 <template>
   <v-row class="wrap-row" no-gutters>
     <h2>Оновлені</h2>
-    <anime-card-slider :animes="recentlyUpdatedAnimes" uniqueClass="recentlyUpdated" />
-    <slider-button text="Показати всі" to="/search" />
+    <anime-card-slider v-if="!loading" :animes="animes" uniqueClass="recentlyUpdated" />
+    <slider-button v-if="!loading" text="Показати всі" to="/search" />
 
     <h2>Топ по переглядах</h2>
-    <anime-card-slider :cardHeight="2" :animes="animes" uniqueClass="topWatched" />
-    <slider-button text="Показати всі" to="/search" />
+    <anime-card-slider v-if="!loading" :cardHeight="2" :animes="animes" uniqueClass="topWatched" />
+    <slider-button v-if="!loading" text="Показати всі" to="/search" />
   </v-row>
 </template>
 
@@ -14,20 +14,12 @@
 import AnimeCard from '~/components/AnimeCard.vue'
 import AnimeCardSlider from '~/components/AnimeCardSlider.vue'
 import SliderButton from '~/components/SliderButton.vue'
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
-      animes: this.$store.state.anime.animes.map(anime => ({
-        id: anime.id,
-        countEpisodes: anime.count_episodes,
-        currentEpisodes: anime.current_episodes,
-        name: anime.name,
-        type: anime.type,
-        posterUrl: process.env.APP_URL + anime.poster_url
-      })).reduce((acc, curr) => acc.concat([curr, curr, curr, curr, curr, curr, curr, curr, curr, curr]), [])
+      loading: true,
     }
   },
   components: {
@@ -36,9 +28,13 @@ export default {
     SliderButton
   },
   computed: {
-    recentlyUpdatedAnimes () {
-      return this.animes
-    }
+    ...mapGetters({
+      animes: 'anime/getAnimes'
+    })
+  },
+  async created() {
+    await this.$store.dispatch('anime/load')
+    this.loading = false
   }
 }
 </script>

@@ -105,8 +105,6 @@ export default Vue.extend({
     }
     }
 
-    
-
     &:hover .anime-card-poster::before,
     &:hover .anime-card-poster::after {
         opacity: 1;
@@ -131,7 +129,4 @@ export default Vue.extend({
     }
     
     }
-
-    
-
 </style>
