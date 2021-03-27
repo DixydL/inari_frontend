@@ -38,7 +38,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import AnimeCard, {AnimeCardProps} from '~/components/AnimeCard.vue'
-import Swiper, {Swiper as S} from 'swiper'
+import Swiper from 'swiper'
 
 
 import 'swiper/swiper-bundle.min.css'

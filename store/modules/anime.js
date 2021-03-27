@@ -35,7 +35,10 @@ const getters = {
       type,
       studio,
       translators,
-      voicers
+      voicers,
+      description,
+      release_date: releaseDate,
+      poster_url: posterUrl
     } = state.anime
 
     return {
@@ -65,7 +68,10 @@ const getters = {
       type,
       studio,
       translators: translators.map(item => ({id: item.id, name: item.name})),
-      voicers: voicers.map(item => ({id: item.id, name: item.name}))
+      voicers: voicers.map(item => ({id: item.id, name: item.name})),
+      posterUrl: process.env.APP_URL + posterUrl,
+      description,
+      releaseDate
     }
   }
 }

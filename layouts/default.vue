@@ -1,7 +1,7 @@
 <template>
   <v-app class="app-bg">
     <v-navigation-drawer 
-      mini-variant 
+      mini-variant
       permanent
       fixed
       app
@@ -29,7 +29,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar fixed app style="justify-content: space-between">
+    <v-app-bar fixed app hide-on-scroll style="justify-content: space-between; background-color: #272727ee;">
       <h1 class="logo-name">Inari</h1>
 
       <v-spacer />
@@ -50,14 +50,11 @@
 
       <v-btn class="login-btn" rounded large color="red darken-2">
         <v-icon style="margin-right: 10px"> mdi-account </v-icon>
-
         Увійти
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container fill-height class="wrap" fluid>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
     <footer>
       <span>&copy; {{ new Date().getFullYear() }}</span>

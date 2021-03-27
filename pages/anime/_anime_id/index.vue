@@ -1,33 +1,125 @@
 <template>
-  <v-row v-if="!loading" justify="center" align="center">
-    {{ anime }}
-  </v-row>
+  <v-container fill-height class="wrap" fluid>
+    <v-row v-if="!loading">
+      <v-col cols="2">
+        <v-img :src="anime.posterUrl" :style="{ borderRadius: '10px' }" />
+      </v-col>
+
+      <v-col cols="9" style="padding: 16px 16px 16px 26px">
+        <h2>{{ anime.name }}</h2>
+        <h3>{{ anime.nameOrigin }}</h3>
+        <div class="genres">
+          <div
+            class="genre red darken"
+            v-for="genre in anime.genres"
+            :key="genre.id"
+          >
+            {{ genre.name }}
+          </div>
+        </div>
+        <p>{{ anime.description }}</p>
+      </v-col>
+    </v-row>
+
+    <v-row v-if="!loading">
+      <v-col cols="2">
+        <div class="anime-info">
+          <div class="info-title">Студія</div>
+          <div class="info-content">{{ anime.studio }}</div>
+          <div class="info-title">Формат</div>
+          <div class="info-content">{{ anime.type }}</div>
+          <div class="info-title">Рік</div>
+          <div class="info-content">{{ anime.releaseDate }}</div>
+          <div class="info-title">Серій</div>
+          <div class="info-content">
+            {{ anime.currentEpisodes + " з " + anime.countEpisodes }}
+          </div>
+          <div class="info-title">Ролі озвучували</div>
+          <div class="info-content">
+            {{ anime.voicers.map(({ name }) => name).join(", ") }}
+          </div>
+        </div>
+      </v-col>
+
+      <v-col cols="10">
+        <anime-player style="border-radius: 10px; background-color: #272727; padding: 16px" :episodes="anime.episodes" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-import { mapGetters } from 'vuex'
+import AnimePlayer from "~/components/AnimePlayer.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    AnimePlayer,
   },
-  computed: {  
+  computed: {
     ...mapGetters({
-      anime: 'anime/getAnime'
-    })
+      anime: "anime/getAnime",
+    }),
   },
   async created() {
-    await this.$store.dispatch('anime/loadById', this.$route.params.anime_id)
-    this.loading = false
+    await this.$store.dispatch("anime/loadById", this.$route.params.anime_id);
+    this.loading = false;
   },
   data() {
     return {
-    loading: true,
-    id: this.$route.params.id
-    }
+      loading: true,
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+h2,
+h3,
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+h2 {
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+}
+
+h3 {
+  opacity: 0.7;
+}
+
+p {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.genres {
+  display: flex;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  margin: 20px 0;
+
+  .genre {
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-right: 10px;
   }
 }
-</script>
+
+.anime-info {
+  font-family: "Montserrat", sans-serif;
+  background-color: #272727;
+  border-radius: 10px;
+  padding: 16px;
+
+  .info-title {
+    font-weight: 500;
+  }
+
+  .info-content {
+    margin-bottom: 16px;
+  }
+}
+</style>

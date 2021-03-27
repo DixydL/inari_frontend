@@ -1,13 +1,15 @@
 <template>
-  <v-row class="wrap-row" no-gutters>
-    <h2>Оновлені</h2>
-    <anime-card-slider v-if="!loading" :animes="animes" uniqueClass="recentlyUpdated" />
-    <slider-button v-if="!loading" text="Показати всі" to="/search" />
-
-    <h2>Топ по переглядах</h2>
-    <anime-card-slider v-if="!loading" :cardHeight="2" :animes="animes" uniqueClass="topWatched" />
-    <slider-button v-if="!loading" text="Показати всі" to="/search" />
-  </v-row>
+  <v-container fill-height class="wrap" fluid>
+    <v-row class="wrap-row" no-gutters>
+      <h2>Оновлені</h2>
+      <anime-card-slider v-if="!loading" :animes="animes" uniqueClass="recentlyUpdated" />
+      <slider-button v-if="!loading" text="Показати всі" to="/search" />
+  
+      <h2>Топ по переглядах</h2>
+      <anime-card-slider v-if="!loading" :cardHeight="2" :animes="animes" uniqueClass="topWatched" />
+      <slider-button v-if="!loading" text="Показати всі" to="/search" />
+    </v-row>
+  </v-container>
 </template>
 
 <script>
