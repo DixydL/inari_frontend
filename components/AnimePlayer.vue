@@ -43,12 +43,12 @@ export default {
         .anime-player-episodes-numbers {
             display: flex;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
+            font-size: 1.4rem;
             margin-bottom: 16px;
 
             div {
-                width: 55px;
-                height: 55px;
+                width: 45px;
+                height: 45px;
                 display: flex;
                 justify-content: center;
                 align-items: center;

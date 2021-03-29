@@ -1,11 +1,11 @@
 <template>
   <v-container fill-height class="wrap" fluid>
     <v-row v-if="!loading">
-      <v-col cols="2">
+      <v-col cols="3">
         <v-img :src="anime.posterUrl" :style="{ borderRadius: '10px' }" />
       </v-col>
 
-      <v-col cols="9" style="padding: 16px 16px 16px 26px">
+      <v-col cols="9" style="display:flex; flex-direction: column;">
         <h2>{{ anime.name }}</h2>
         <h3>{{ anime.nameOrigin }}</h3>
         <div class="genres">
@@ -17,12 +17,12 @@
             {{ genre.name }}
           </div>
         </div>
-        <p>{{ anime.description }}</p>
+        <p style="padding: 16px; background-color: #272727; border-radius: 10px; flex: 1;">{{ anime.description }}</p>
       </v-col>
     </v-row>
 
-    <v-row v-if="!loading">
-      <v-col cols="2">
+    <v-row v-if="!loading" style="align-items: stretch;">
+      <v-col cols="3">
         <div class="anime-info">
           <div class="info-title">Студія</div>
           <div class="info-content">{{ anime.studio }}</div>
@@ -41,7 +41,7 @@
         </div>
       </v-col>
 
-      <v-col cols="10">
+      <v-col cols="9">
         <anime-player style="border-radius: 10px; background-color: #272727; padding: 16px" :episodes="anime.episodes" />
       </v-col>
     </v-row>
@@ -90,8 +90,9 @@ h3 {
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
+  margin-bottom: 0;
 }
 
 .genres {
@@ -113,6 +114,7 @@ p {
   background-color: #272727;
   border-radius: 10px;
   padding: 16px;
+  height: 100%;
 
   .info-title {
     font-weight: 500;
